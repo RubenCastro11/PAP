@@ -23,5 +23,5 @@ class Mota extends Model
         'cor',
         'data_fabrico'
         
-    ]
+    ];
 }

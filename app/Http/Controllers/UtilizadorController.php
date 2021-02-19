@@ -13,10 +13,19 @@ class UtilizadorController extends Controller
     		'utilizador'=>$utilizador
     	]);
     }
+
     public function show(Request $request){
-    	$idutilizador=request->id;
-    	$utilizador=Utilizador::where('id_utilizador',$idutilizador)->first();
-    	return view('utilizador.show',[
-    		'utilizador'=>$utilizador
+        $idutilizador=$request->id;
+        $utilizador=Utilizador::where('id_utilizador',$idutilizador)->first();
+         return view('utilizador.show',[
+            'utilizador'=>$utilizador
+         ]);
+   {
+    public function create(){
+         return view('utilizador.create');
     }
+    public function store(Request $request){
+        $novoUtilizador =$request->validate([
+            
+        ]);
 }

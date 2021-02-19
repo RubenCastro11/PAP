@@ -10,15 +10,26 @@ class MotaController extends Controller
 {
     
     public function index(){
-    	$mota=Mota::all();
+    	$motas=Mota::all();
     	return view('mota.index',[
-    		'mota'=>$mota
+    		'motas'=>$motas
     	]);
     }
     public function show(Request $request){
-    	$idmota=request->id;
+    	$idmota=$request->id;
     	$mota=Mota::where('id_mota',$idmota)->first();
     	return view('mota.show',[
     		'mota'=>$mota
-    }
+    	]);
+     }
+
+   //  public function create(){
+   //       return view('mota.create');
+   //  }
+   //  public function store(Request $request){
+   //      $novoMota =$request->validate([
+   //          'nome'=>['']
+   //      ]);
+
+
 }

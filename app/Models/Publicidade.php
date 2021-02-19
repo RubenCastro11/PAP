@@ -15,5 +15,5 @@ class Publicidade extends Model
         'id_mota',
         'designacao',
         'fotografia'
-    ]
+    ];
 }

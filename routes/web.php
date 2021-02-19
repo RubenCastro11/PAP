@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/estilo','App\Http\Controllers\EstiloController@index')->name('estilos.index');
+
+Route::get('/estilo/{id}/show','App\Http\Controllers\EstiloController@show')->name('estilos.show');
+
+Route::get('/mota','App\Http\Controllers\MotaController@index')->name('motas.index');
+
+Route::get('/mota/{id}/show','App\Http\Controllers\MotaController@show')->name('motas.show');
