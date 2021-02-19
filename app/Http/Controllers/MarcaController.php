@@ -16,7 +16,7 @@ class MarcaController extends Controller
     }
     public function show(Request $request){
         $idmarca=request->id;
-        $marca=Marca::where('id_marca',$idestilo)->with('marca')->first();
+        $marca=Marca::where('id_marca',$idestilo)->first();
          return view('marca.show',[
             'marca'=>$marca
     }

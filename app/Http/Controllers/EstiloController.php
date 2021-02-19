@@ -16,9 +16,23 @@ class EstiloController extends Controller
     }
     public function show(Request $request){
         $idestilo=request->id;
-        $estilo=Estilo::where('id_estilo',$idestilo)->with('estilo')->first();
+        $estilo=Estilo::where('id_estilo',$idestilo)->first();
          return view('estilo.show',[
             'estilo'=>$estilo
+         ]);
+   {
+    public function create(){
+         return view('estilo.create');
     }
+    public function store(Request $reuqest){
+        $novoEstilo =$request->validate([
+            
+        ])
+         
+    }   
+       
+            
+   }
+    
              
 }
