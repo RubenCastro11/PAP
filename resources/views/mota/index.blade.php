@@ -3,6 +3,9 @@
 <li>
  	<a href="{{route('motas.show',['id'=>$mota->id_mota])}}">
  		{{$mota->marca}}
+ 		{{$mota->modelo}}
+ 		{{$mota->cilindrada}}
+
  	</a>
 </li>
 

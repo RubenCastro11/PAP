@@ -32,3 +32,6 @@ Route::get('/publicidade/{id}/show','App\Http\Controllers\PublicidadeController@
 Route::get('/marca','App\Http\Controllers\MarcaController@index')->name('marcas.index');
 
 Route::get('/marca/{id}/show','App\Http\Controllers\MarcaController@show')->name('marcas.show');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
