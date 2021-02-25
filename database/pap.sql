@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Fev-2021 às 18:18
+-- Tempo de geração: 25-Fev-2021 às 10:52
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -61,6 +61,16 @@ CREATE TABLE `marcas` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `marcas`
+--
+
+INSERT INTO `marcas` (`id_marca`, `nome`, `origem_marca`, `ano_criacao`, `logotipo`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Husqvarna', 'Suécia', '1904', NULL, NULL, NULL, NULL),
+(2, 'KTM', 'Áustria', '1934', NULL, NULL, NULL, NULL),
+(3, 'BMW', 'Alemanha', '1916', NULL, NULL, NULL, NULL),
+(4, 'Honda', 'Japão', '1948', NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -109,6 +119,13 @@ CREATE TABLE `publicidades` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `publicidades`
+--
+
+INSERT INTO `publicidades` (`id_publicidade`, `id_mota`, `designacao`, `fotografia`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,7 +194,7 @@ ALTER TABLE `estilos`
 -- AUTO_INCREMENT de tabela `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `motas`
@@ -189,7 +206,7 @@ ALTER TABLE `motas`
 -- AUTO_INCREMENT de tabela `publicidades`
 --
 ALTER TABLE `publicidades`
-  MODIFY `id_publicidade` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_publicidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `utilizadores`
