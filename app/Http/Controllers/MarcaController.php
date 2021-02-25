@@ -9,9 +9,9 @@ class MarcaController extends Controller
 {
     //
      public function index(){
-        $marca=Marca::all();
+        $marcas=Marca::all();
         return view('marca.index',[
-            'marca'=>$marca
+            'marcas'=>$marcas
         ]);
     }
     public function show(Request $request){
