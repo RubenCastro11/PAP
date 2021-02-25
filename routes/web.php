@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/estilo','App\Http\Controllers\EstiloController@index')->name('estilos.index');
 
-Route::get('/estilo/{id}/show','App\Http\Controllers\EstiloController@show')->name('estilos.show');
+Route::get('/estilo/{id_estilo}/show','App\Http\Controllers\EstiloController@show')->name('estilos.show');
 
 Route::get('/mota','App\Http\Controllers\MotaController@index')->name('motas.index');
 
