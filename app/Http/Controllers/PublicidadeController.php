@@ -20,12 +20,12 @@ class PublicidadeController extends Controller
          return view('publicidade.show',[
             'publicidade'=>$publicidade
          ]);
-   {
-    public function create(){
-         return view('publicidade.create');
-    }
-    public function store(Request $request){
-        $novoPublicidade=$request->validate([
+   }
+    // public function create(){
+    //      return view('publicidade.create');
+    // }
+    // public function store(Request $request){
+    //     $novoPublicidade=$request->validate([
             
-        ]);
+    //     ]);
 }

@@ -24,3 +24,11 @@ Route::get('/estilo/{id_estilo}/show','App\Http\Controllers\EstiloController@sho
 Route::get('/mota','App\Http\Controllers\MotaController@index')->name('motas.index');
 
 Route::get('/mota/{id}/show','App\Http\Controllers\MotaController@show')->name('motas.show');
+
+Route::get('/publicidade','App\Http\Controllers\PublicidadeController@index')->name('publicidades.index');
+
+Route::get('/publicidade/{id}/show','App\Http\Controllers\PublicidadeController@show')->name('publicidades.show');
+
+Route::get('/marca','App\Http\Controllers\MarcaController@index')->name('marcas.index');
+
+Route::get('/marca/{id}/show','App\Http\Controllers\MarcaController@show')->name('marcas.show');
