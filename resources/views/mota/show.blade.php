@@ -10,4 +10,5 @@ Preço: {{$mota->preco}}<br>
 Cor: {{$mota->cor}}<br>
 Data de Fabrico: {{$mota->data_fabrico}}<br>
 Observações: {{$mota->observacoes}}<br>
-
+<br>
+<a href="{{route('motas.index')}}">Voltar</a>

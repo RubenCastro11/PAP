@@ -18,10 +18,16 @@ class Mota extends Model
         'marca',
         'modelo',
         'cilindrada',
-        'km',
+        'quilometros',
         'preco',
         'cor',
         'data_fabrico'
         
     ];
+
+ 
 }
+
+
+
+?>

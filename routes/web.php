@@ -21,17 +21,36 @@ Route::get('/estilo','App\Http\Controllers\EstiloController@index')->name('estil
 
 Route::get('/estilo/{id_estilo}/show','App\Http\Controllers\EstiloController@show')->name('estilos.show');
 
+Route::get('/estilo/create','App\Http\Controllers\EstiloController@create')->name('estilos.create')->middleware('auth');
+
+Route::post('/estilo','App\Http\Controllers\EstiloController@store')->name('estilos.store')->middleware('auth');
+
+
+
+
 Route::get('/mota','App\Http\Controllers\MotaController@index')->name('motas.index');
 
 Route::get('/mota/{id}/show','App\Http\Controllers\MotaController@show')->name('motas.show');
+
+Route::get('/mota/create','App\Http\Controllers\MotaController@create')->name('motas.create')->middleware('auth');
+
+Route::post('/mota','App\Http\Controllers\MotaController@store')->name('motas.store')->middleware('auth');
+
+
+
 
 Route::get('/publicidade','App\Http\Controllers\PublicidadeController@index')->name('publicidades.index');
 
 Route::get('/publicidade/{id}/show','App\Http\Controllers\PublicidadeController@show')->name('publicidades.show');
 
+
+
+
+
 Route::get('/marca','App\Http\Controllers\MarcaController@index')->name('marcas.index');
 
 Route::get('/marca/{id}/show','App\Http\Controllers\MarcaController@show')->name('marcas.show');
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

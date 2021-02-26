@@ -9,4 +9,7 @@
  	</a>
 </li>
 
+
 @endforeach
+<br>
+<a href="{{route('motas.create')}}">Adicionar Mota</a>
