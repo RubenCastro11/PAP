@@ -43,7 +43,7 @@ class MotaController extends Controller
             'cor'=>['required','min:3','max:10'],
             'data_fabrico'=>['required','date'],
             'observacoes'=>['nullable','min:3','max:255'],
-
+            'fotografia'=>['required']
 
         ]);
 

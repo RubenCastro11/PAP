@@ -43,6 +43,9 @@ Route::get('/publicidade','App\Http\Controllers\PublicidadeController@index')->n
 
 Route::get('/publicidade/{id}/show','App\Http\Controllers\PublicidadeController@show')->name('publicidades.show');
 
+Route::get('/publicidade/create','App\Http\Controllers\PublicidadeController@create')->name('publicidades.create')->middleware('auth');
+
+Route::post('/publicidade','App\Http\Controllers\PublicidadeController@store')->name('publicidades.store')->middleware('auth');
 
 
 
@@ -50,7 +53,14 @@ Route::get('/publicidade/{id}/show','App\Http\Controllers\PublicidadeController@
 Route::get('/marca','App\Http\Controllers\MarcaController@index')->name('marcas.index');
 
 Route::get('/marca/{id}/show','App\Http\Controllers\MarcaController@show')->name('marcas.show');
+
+Route::get('/marca/create','App\Http\Controllers\MarcaController@create')->name('marcas.create')->middleware('auth');
+
+Route::post('/marca','App\Http\Controllers\MarcaController@store')->name('marcas.store')->middleware('auth');
+
+
 Auth::routes();
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

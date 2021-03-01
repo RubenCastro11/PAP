@@ -17,3 +17,5 @@ class Publicidade extends Model
         'fotografia'
     ];
 }
+
+?>

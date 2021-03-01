@@ -21,11 +21,21 @@ class PublicidadeController extends Controller
             'publicidade'=>$publicidade
          ]);
    }
-    // public function create(){
-    //      return view('publicidade.create');
-    // }
-    // public function store(Request $request){
-    //     $novoPublicidade=$request->validate([
+
+     public function create(){
+           return view('publicidade.create');
+     }
+      public function store(Request $request){
+        $novoPublicidade=$request->validate([
+            'id_mota'=>['required','numeric'],
+            'designacao'=>['required','min:0'],
+            'fotografia'=>['required','image'],
             
-    //     ]);
-}
+          ]);
+        $publicidade = Publicidade::create($novoPublicidade);
+
+        return redirect()->route('publicidades.show',[
+          'id'=>$publicidade->id_publicidade
+        ]);
+        }
+ }

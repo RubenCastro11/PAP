@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Fev-2021 às 17:58
+-- Tempo de geração: 01-Mar-2021 às 18:35
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -126,6 +126,7 @@ CREATE TABLE `motas` (
   `cor` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `data_fabrico` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `observacoes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fotografia` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -135,12 +136,12 @@ CREATE TABLE `motas` (
 -- Extraindo dados da tabela `motas`
 --
 
-INSERT INTO `motas` (`id_mota`, `id_estilo`, `id_user`, `marca`, `modelo`, `cilindrada`, `quilometros`, `preco`, `cor`, `data_fabrico`, `observacoes`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 'Husqvarna', 'FE', '250', '0 ', 10250, 'Branco', '2021', 'A FE 250 é a menor capacidade de 4 tempos da linha de enduro, o que também significa que é a mais leve. Com uma série de recursos e tecnologias avançadas, esta máquina enduro avançada e brilha em terrenos técnicos difíceis.', NULL, NULL, NULL),
-(2, 1, 2, 'KTM', 'EXC', '300', '1350', 7100, 'Laranja', '2019', 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita.', NULL, NULL, NULL),
-(3, 2, 3, 'BMW', 'S', '1000', '17000', 15500, 'Brano', '2016', ' BMW S1000RR 2016  com os seguintes extras:\r\n-Ponteira Akrapovic HP titanium\r\n-Manetes bomba de travao Brembo Rcs19, embraiagem Brembo Rcs19\r\n-Proteção Radiador R&G e radiador de oleo R&G\r\n-Tampas de oleo Rizoma\r\n-Suporte de matricula Curto\r\n', NULL, NULL, NULL),
-(4, 3, 4, 'Honda', 'Hornet', '600', '28990', 6000, 'Preto', '2012', '', NULL, NULL, NULL),
-(6, 3, NULL, 'Yamaha', 'FZ', '800', '23500', 6000, 'Azul', '2010-06-16', 'Revisão feita. Pneus em muito bom estado. Frente tem pouco mais de 1000kms. Manetes curtas. Banco condutor em gel. Suporte telemóvel com ficha de carregamento. Ponteira réplica Akrapovic', '2021-02-26 16:27:24', '2021-02-26 16:27:24', NULL);
+INSERT INTO `motas` (`id_mota`, `id_estilo`, `id_user`, `marca`, `modelo`, `cilindrada`, `quilometros`, `preco`, `cor`, `data_fabrico`, `observacoes`, `fotografia`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, 'Husqvarna', 'FE', '250', '0 ', 10250, 'Branco', '2021', 'A FE 250 é a menor capacidade de 4 tempos da linha de enduro, o que também significa que é a mais leve. Com uma série de recursos e tecnologias avançadas, esta máquina enduro avançada e brilha em terrenos técnicos difíceis.', '', NULL, NULL, NULL),
+(2, 1, 2, 'KTM', 'EXC', '300', '1350', 7100, 'Laranja', '2019', 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita.', '', NULL, NULL, NULL),
+(3, 2, 3, 'BMW', 'S', '1000', '17000', 15500, 'Brano', '2016', ' BMW S1000RR 2016  com os seguintes extras:\r\n-Ponteira Akrapovic HP titanium\r\n-Manetes bomba de travao Brembo Rcs19, embraiagem Brembo Rcs19\r\n-Proteção Radiador R&G e radiador de oleo R&G\r\n-Tampas de oleo Rizoma\r\n-Suporte de matricula Curto\r\n', '', NULL, NULL, NULL),
+(4, 3, 4, 'Honda', 'Hornet', '600', '28990', 6000, 'Preto', '2012', 'Honda CB600 F com cerca de 28990 km, praticamente nova', '', NULL, NULL, NULL),
+(6, 3, NULL, 'Yamaha', 'FZ', '800', '23500', 6000, 'Azul', '2010-06-16', 'Revisão feita. Pneus em muito bom estado. Frente tem pouco mais de 1000kms. Manetes curtas. Banco condutor em gel. Suporte telemóvel com ficha de carregamento. Ponteira réplica Akrapovic', '', '2021-02-26 16:27:24', '2021-02-26 16:27:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -175,7 +176,8 @@ CREATE TABLE `publicidades` (
 --
 
 INSERT INTO `publicidades` (`id_publicidade`, `id_mota`, `designacao`, `fotografia`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita', NULL, NULL, NULL, NULL);
+(1, 2, 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita', NULL, NULL, NULL, NULL),
+(2, 4, 'Honda CB600 F  e cerca de 28990 km, praticamente nova', 'C:\\xampp\\tmp\\php2D30.tmp', '2021-03-01 17:32:59', '2021-03-01 17:32:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -318,7 +320,7 @@ ALTER TABLE `motas`
 -- AUTO_INCREMENT de tabela `publicidades`
 --
 ALTER TABLE `publicidades`
-  MODIFY `id_publicidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_publicidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `users`

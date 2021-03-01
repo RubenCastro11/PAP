@@ -7,3 +7,5 @@
 </li>
 
 @endforeach
+<br>
+<a href="{{route('publicidades.create')}}">Adicionar Publicidade</a>
