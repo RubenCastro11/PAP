@@ -21,6 +21,19 @@ class EstiloController extends Controller
          return view('estilo.show',[
             'estilos'=>$estilo
          ]);
-
     }
+    public function create(){
+        return view('estilo.create');
+    }
+    public function store(Request $req){
+        $novoEstilo=$req->validate([
+            'nome'=>['required','min:3','max:50']
+        ]);
+        $estilo=Estilo::create($novoEstilo);
+        return redirect()->route('estilos.show',[
+            'id_estilo'=>$estilo->id_estilo
+            
+        ]);
+    }
+    
 }
