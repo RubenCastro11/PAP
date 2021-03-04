@@ -19,6 +19,21 @@ class MarcaController extends Controller
         $marca=Marca::where('id_marca',$idmarca)->first();
          return view('marca.show',[
             'marca'=>$marca
-       ]);
+       ]);    
+    }
+    public function create(){
+        return view('marcas.create');
+    }
+    public function store(Request $req){
+        $novoMarca =$req->validate([
+            'nome'=>['required','min:3','max:25'],
+            'origem_marca'=>['nullable','min:3','max:20'],
+            'ano_criacao'=>['nullable','min:3','max:4'],
+            'logotigo'=>['nullable','min:3','max:255']     
+        ]);
+        $marca = Marcas::create($novoMarca);
+        return redirect()->route('marcas.show',[
+            'id'=>$marca->id_marca       
+        ]);
     }
 }

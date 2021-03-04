@@ -6,4 +6,5 @@
 </a> 
 </li>
 @endforeach
-
+<br>
+<a href="{{route('marcas.create')}}">Adicionar Marca</a>

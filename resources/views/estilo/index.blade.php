@@ -6,7 +6,8 @@
 </a> 
 </li>
 @endforeach
-
+<br>
+<a href="{{route('estilos.create')}}">Adicionar Estilo</a>
 
     
     
