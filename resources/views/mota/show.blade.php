@@ -12,5 +12,9 @@ Data de Fabrico: {{$mota->data_fabrico}}<br>
 Observações: {{$mota->observacoes}}<br>
 Fotografia: {{$mota->fotografia}}<br>
 
+@if(isset($mota->fotografia))
+<img src="{{asset('imagens/mota/'.$mota->fotografia)}}">
+@endif
+
 <br>
 <a href="{{route('motas.index')}}">Voltar</a>

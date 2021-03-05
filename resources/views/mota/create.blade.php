@@ -1,4 +1,4 @@
-<form action="{{route('motas.store')}}" method="post">
+<form action="{{route('motas.store')}}" enctype="multipart/form-data" method="post">
 @csrf
 
 	Estilo:<select name="id_estilo">
