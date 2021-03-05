@@ -22,7 +22,7 @@ class MarcaController extends Controller
        ]);    
     }
     public function create(){
-        return view('marcas.create');
+        return view('marca.create');
     }
     public function store(Request $req){
         $novoMarca =$req->validate([
@@ -31,7 +31,7 @@ class MarcaController extends Controller
             'ano_criacao'=>['nullable','min:3','max:4'],
             'logotigo'=>['nullable','min:3','max:255']     
         ]);
-        $marca = Marcas::create($novoMarca);
+        $marca = Marca::create($novoMarca);
         return redirect()->route('marcas.show',[
             'id'=>$marca->id_marca       
         ]);
