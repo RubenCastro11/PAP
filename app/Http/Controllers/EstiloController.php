@@ -35,5 +35,25 @@ class EstiloController extends Controller
             
         ]);
     }
+    public function edit(Request $request){
+        $idestilo=$request->id_estilo; 
+        $estilo=Estilo::where('id_estilo',$idestilo)->first();
+        return view('estilo.edit',[
+            'estilo'=>$estilo
+        ]);     
+    }
+    public function update (Request $request){
+        $idestilo=$request->id_estilo;
+        $estilo=Estilo::where('id_estilo',$idestilo)->first();
+        $atualizarEstilo=$request->validate([
+            'nome'=>['required','min:3','max:50']
+        ]);
+        $estilo->update($atualizarEstilo);
+        return redirect()->route('estilos.show',[
+            'id_estilo'=>$estilo->id_estilo
+        ]);
+     
+        
+    }
     
 }

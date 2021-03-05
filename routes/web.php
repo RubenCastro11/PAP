@@ -25,6 +25,11 @@ Route::get('/estilo/create','App\Http\Controllers\EstiloController@create')->nam
 
 Route::post('/estilo','App\Http\Controllers\EstiloController@store')->name('estilos.store')->middleware('auth');
 
+Route::get('/estilo/{id_estilo}/edit','App\Http\Controllers\EstiloController@edit')->name('estilos.edit')->middleware('auth');
+
+Route::patch('/estilo/{id_estilo}/','App\Http\Controllers\EstiloController@update')->name('estilos.update')->middleware('auth');
+
+
 
 
 
