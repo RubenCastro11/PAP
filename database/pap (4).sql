@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Mar-2021 às 18:35
+-- Tempo de geração: 05-Mar-2021 às 18:12
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -85,7 +85,8 @@ INSERT INTO `marcas` (`id_marca`, `nome`, `origem_marca`, `ano_criacao`, `logoti
 (1, 'Husqvarna', 'Suécia', '1904', NULL, NULL, NULL, NULL),
 (2, 'KTM', 'Áustria', '1934', NULL, NULL, NULL, NULL),
 (3, 'BMW', 'Alemanha', '1916', NULL, NULL, NULL, NULL),
-(4, 'Honda', 'Japão', '1948', NULL, NULL, NULL, NULL);
+(4, 'Honda', 'Japão', '1948', NULL, NULL, NULL, NULL),
+(10, 'Kawasaki', 'Japão', '1962', '1614961752_logo kawa.jpg', '2021-03-05 16:29:12', '2021-03-05 16:29:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,7 @@ CREATE TABLE `motas` (
   `cor` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `data_fabrico` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `observacoes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fotografia` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fotografia` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -141,7 +142,8 @@ INSERT INTO `motas` (`id_mota`, `id_estilo`, `id_user`, `marca`, `modelo`, `cili
 (2, 1, 2, 'KTM', 'EXC', '300', '1350', 7100, 'Laranja', '2019', 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita.', '', NULL, NULL, NULL),
 (3, 2, 3, 'BMW', 'S', '1000', '17000', 15500, 'Brano', '2016', ' BMW S1000RR 2016  com os seguintes extras:\r\n-Ponteira Akrapovic HP titanium\r\n-Manetes bomba de travao Brembo Rcs19, embraiagem Brembo Rcs19\r\n-Proteção Radiador R&G e radiador de oleo R&G\r\n-Tampas de oleo Rizoma\r\n-Suporte de matricula Curto\r\n', '', NULL, NULL, NULL),
 (4, 3, 4, 'Honda', 'Hornet', '600', '28990', 6000, 'Preto', '2012', 'Honda CB600 F com cerca de 28990 km, praticamente nova', '', NULL, NULL, NULL),
-(6, 3, NULL, 'Yamaha', 'FZ', '800', '23500', 6000, 'Azul', '2010-06-16', 'Revisão feita. Pneus em muito bom estado. Frente tem pouco mais de 1000kms. Manetes curtas. Banco condutor em gel. Suporte telemóvel com ficha de carregamento. Ponteira réplica Akrapovic', '', '2021-02-26 16:27:24', '2021-02-26 16:27:24', NULL);
+(6, 3, NULL, 'Yamaha', 'FZ', '800', '23500', 6000, 'Azul', '2010-06-16', 'Revisão feita. Pneus em muito bom estado. Frente tem pouco mais de 1000kms. Manetes curtas. Banco condutor em gel. Suporte telemóvel com ficha de carregamento. Ponteira réplica Akrapovic', '', '2021-02-26 16:27:24', '2021-02-26 16:27:24', NULL),
+(11, 2, NULL, 'Honda', 'Cbr', '1000', '11000', 7150, 'Tricolor', '2010-06-16', 'Mota muito nova de tudo com muito pouco uso com 11.000km toda de origem', '1614957380_cbr2.webp', '2021-03-05 15:16:20', '2021-03-05 15:16:20', NULL);
 
 -- --------------------------------------------------------
 
@@ -177,7 +179,8 @@ CREATE TABLE `publicidades` (
 
 INSERT INTO `publicidades` (`id_publicidade`, `id_mota`, `designacao`, `fotografia`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 2, 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita', NULL, NULL, NULL, NULL),
-(2, 4, 'Honda CB600 F  e cerca de 28990 km, praticamente nova', 'C:\\xampp\\tmp\\php2D30.tmp', '2021-03-01 17:32:59', '2021-03-01 17:32:59', NULL);
+(2, 4, 'Honda CB600 F  e cerca de 28990 km, praticamente nova', 'C:\\xampp\\tmp\\php2D30.tmp', '2021-03-01 17:32:59', '2021-03-01 17:32:59', NULL),
+(4, 7, 'a', '1614869280_ktm-removebg-preview.png', '2021-03-04 14:48:00', '2021-03-04 14:48:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -302,7 +305,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `migrations`
@@ -314,13 +317,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de tabela `motas`
 --
 ALTER TABLE `motas`
-  MODIFY `id_mota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_mota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `publicidades`
 --
 ALTER TABLE `publicidades`
-  MODIFY `id_publicidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_publicidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `users`
