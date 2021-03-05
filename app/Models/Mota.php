@@ -21,7 +21,8 @@ class Mota extends Model
         'quilometros',
         'preco',
         'cor',
-        'data_fabrico'
+        'data_fabrico',
+        'fotografia'
         
     ];
 

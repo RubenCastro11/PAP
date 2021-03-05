@@ -67,11 +67,11 @@ class PublicidadeController extends Controller
             'designacao'=>['required','min:0'],
             'fotografia'=>['required','image','max:2000'],
             ]);
-            if($request->hasFile('imagem_capa')){
+            if($request->hasFile('fotografia')){
                 $nomeImagem=$request->file('fotografia')->getClientOriginalName();
                 $nomeImagem=time().'_'.$nomeImagem;
                 $guardarImagem=$request->file('fotografia')->storeAs('imagens/publicidade',$nomeImagem);
-                $atualizarMota['fotografia']=$nomeImagem;
+                $atualizarpublicidade['fotografia']=$nomeImagem;
             }
             $publicidade->update($editPublicidade);
         

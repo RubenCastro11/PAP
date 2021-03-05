@@ -1,4 +1,4 @@
-<form action="{{route('marcas.store')}}" method="post">
+<form action="{{route('marcas.store')}}" enctype="multipart/form-data" method="post">
 @csrf
     
 Nome: <input type="text" name="nome" value="{{old('nome')}}"><br><br>
@@ -16,7 +16,7 @@ Ano Criacao: <input type="text" name="ano_criacao" value="{{old('ano_criacao')}}
 <b style="color:red">Campo Obrigatório</b><br>
 @endif
     
-Logotipo: <input type="text" name="logotipo" value="{{old('logotipo')}}"><br><br>
+Logotipo: <input type="file" name="logotipo" value="{{old('logotipo')}}"><br><br>
 @if ($errors->has('logotipo'))
 <b style="color:red">Campo Obrigatório</b><br>
 @endif
