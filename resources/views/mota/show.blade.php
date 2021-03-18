@@ -18,3 +18,7 @@ Observações: {{$mota->observacoes}}<br>
 
 <br>
 <a href="{{route('motas.index')}}">Voltar</a>
+
+<a href="{{route('motas.edit', ['id_mota'=>$mota->id_mota])}}" class="btn btn-primary"> Editar 
+
+</a>

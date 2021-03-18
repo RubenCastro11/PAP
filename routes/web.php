@@ -41,6 +41,10 @@ Route::get('/mota/create','App\Http\Controllers\MotaController@create')->name('m
 
 Route::post('/mota','App\Http\Controllers\MotaController@store')->name('motas.store')->middleware('auth');
 
+Route::get('/mota/{id_mota}/edit','App\Http\Controllers\MotaController@edit')->name('motas.edit')->middleware('auth');
+
+Route::patch('/mota/{id_mota}/update','App\Http\Controllers\MotaController@update')->name('motas.update')->middleware('auth');
+
 
 
 
@@ -51,6 +55,10 @@ Route::get('/publicidade/{id}/show','App\Http\Controllers\PublicidadeController@
 Route::get('/publicidade/create','App\Http\Controllers\PublicidadeController@create')->name('publicidades.create')->middleware('auth');
 
 Route::post('/publicidade','App\Http\Controllers\PublicidadeController@store')->name('publicidades.store')->middleware('auth');
+
+Route::get('/publicidade/{id_publicidade}/edit','App\Http\Controllers\PublicidadeController@edit')->name('publicidades.edit')->middleware('auth');
+
+Route::patch('/publicidade/{id_publicidade}/update','App\Http\Controllers\PublicidadeController@update')->name('publicidades.update')->middleware('auth');
 
 
 

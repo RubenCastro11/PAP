@@ -58,7 +58,7 @@ class PublicidadeController extends Controller
 
 
         public function update (Request $request){
-            $idpublicidade=$request->id;
+            $idpublicidade=$request->id_publicidade;
             $publicidade=Publicidade::findOrFail($idpublicidade);
 
             $atualizarpublicidade=$request->validate([
@@ -73,11 +73,19 @@ class PublicidadeController extends Controller
                 $guardarImagem=$request->file('fotografia')->storeAs('imagens/publicidade',$nomeImagem);
                 $atualizarpublicidade['fotografia']=$nomeImagem;
             }
-            $publicidade->update($editPublicidade);
+            $publicidade->update($atualizarpublicidade);
         
         return redirect()->route('publicidades.show',[
             'id'=>$publicidade->id_publicidade
         ]);
         }
+
+        public function edit(Request $request){
+        $idpublicidade=$request->id_publicidade; 
+        $publicidade=Publicidade::where('id_publicidade',$idpublicidade)->first();
+        return view('publicidade.edit',[
+            'publicidade'=>$publicidade
+        ]);     
+    }
     }
  

@@ -26,6 +26,9 @@ class Mota extends Model
         
     ];
 
+public function estilo(){
+    return $this->belongsTo('App\Models\Estilo','id_estilo');
+}
  
 }
 

@@ -65,7 +65,7 @@ class MotaController extends Controller
 
 
 public function update (Request $request){
-            $idmota=$request->id;
+            $idmota=$request->id_mota;
             $mota=Mota::findOrFail($idmota);
 
             $atualizarmota=$request->validate([
@@ -89,12 +89,22 @@ public function update (Request $request){
                 $guardarImagem=$request->file('fotografia')->storeAs('imagens/mota',$nomeImagem);
                 $atualizarMota['fotografia']=$nomeImagem;
             }
-            $mota->update($editMota);
+            $mota->update($atualizarMota);
         
         return redirect()->route('motas.show',[
             'id'=>$mota->id_mota
         ]);
         }
+
+        public function edit(Request $request){
+        $idmota=$request->id_mota; 
+        $mota=Mota::where('id_mota',$idmota)->with('estilo')->first();
+        $estilos=Estilo::all();
+        return view('mota.edit',[
+            'mota'=>$mota,
+            'estilos'=>$estilos
+        ]);     
+    }
     }
  
 

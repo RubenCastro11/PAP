@@ -9,4 +9,8 @@ Designação: {{$publicidade->designacao}}<br>
 @endif
 
 <br>
-<a href="{{route('publicidades.index')}}">Voltar</a>
+<a href="{{route('publicidades.index')}}">Voltar</a> <br>
+
+<a href="{{route('publicidades.edit', ['id_publicidade'=>$publicidade->id_publicidade])}}" class="btn btn-primary"> Editar 
+
+</a>
