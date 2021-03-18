@@ -22,3 +22,5 @@ Observações: {{$mota->observacoes}}<br>
 <a href="{{route('motas.edit', ['id_mota'=>$mota->id_mota])}}" class="btn btn-primary"> Editar 
 
 </a>
+
+<a href="{{route('motas.delete', ['id_mota'=>$mota->id_mota])}}" class="btn btn-primary"> Eliminar </a>

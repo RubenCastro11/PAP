@@ -46,6 +46,17 @@ Route::get('/mota/{id_mota}/edit','App\Http\Controllers\MotaController@edit')->n
 Route::patch('/mota/{id_mota}/update','App\Http\Controllers\MotaController@update')->name('motas.update')->middleware('auth');
 
 
+Route::get('/mota/{id_mota}/delete','App\Http\Controllers\MotaController@delete')->name('motas.delete')->middleware('auth');
+Route::delete('/mota','App\Http\Controllers\MotaController@destroy')->name('motas.destroy')->middleware('auth');
+
+
+
+
+
+
+
+
+
 
 
 Route::get('/publicidade','App\Http\Controllers\PublicidadeController@index')->name('publicidades.index');

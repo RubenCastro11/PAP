@@ -66,8 +66,8 @@ class MotaController extends Controller
 
 public function update (Request $request){
             $idmota=$request->id_mota;
-            $mota=Mota::findOrFail($idmota);
-
+            $mota=Mota::where('id_mota',$idmota)->first();
+           
             $atualizarmota=$request->validate([
             'id_estilo'=>['required','numeric'],
             'marca'=>['required','min:3','max:50'],
@@ -82,7 +82,7 @@ public function update (Request $request){
             'observacoes'=>['nullable','min:3','max:255'],
             'fotografia'=>['required','image','max:2000'],
             ]);
-
+            
             if($request->hasFile('fotografia')){
                 $nomeImagem=$request->file('fotografia')->getClientOriginalName();
                 $nomeImagem=time().'_'.$nomeImagem;
@@ -105,7 +105,40 @@ public function update (Request $request){
             'estilos'=>$estilos
         ]);     
     }
-    }
+
+    public function delete(Request $request){
+        $idmota=$request->id_mota;
+        $mota=Mota::where('id_mota',$idmota)->first();
+        
+            if(is_null($mota)){
+                return redirect()->route('motas.index');
+            }
+            else
+            {
+                return view('mota.delete',[
+                    'mota'=>$mota
+                ]);
+            }
+        }
+    
+    public function destroy(Request $request){
+        $idmota=$request->id_mota;
+        $mota=Mota::where('id_mota',$idmota)->first();
+        
+            if(is_null($mota)){
+                return redirect()->route('motas.index');
+            }
+            else
+            {
+                $mota->delete();
+                return redirect()->route('motas.index')->with('mensagem','Mota eliminada!');
+            }
+        
+    }    
+}
+
+
+    
  
 
 
