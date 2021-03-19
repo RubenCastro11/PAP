@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Mar-2021 às 18:12
+-- Tempo de geração: 19-Mar-2021 às 18:29
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -42,7 +42,7 @@ CREATE TABLE `estilos` (
 INSERT INTO `estilos` (`id_estilo`, `nome`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Motocross', NULL, NULL, NULL),
 (2, 'Pista', NULL, NULL, NULL),
-(3, 'Naked', NULL, NULL, NULL);
+(3, 'Naked', NULL, '2021-03-08 17:23:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -138,10 +138,10 @@ CREATE TABLE `motas` (
 --
 
 INSERT INTO `motas` (`id_mota`, `id_estilo`, `id_user`, `marca`, `modelo`, `cilindrada`, `quilometros`, `preco`, `cor`, `data_fabrico`, `observacoes`, `fotografia`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 'Husqvarna', 'FE', '250', '0 ', 10250, 'Branco', '2021', 'A FE 250 é a menor capacidade de 4 tempos da linha de enduro, o que também significa que é a mais leve. Com uma série de recursos e tecnologias avançadas, esta máquina enduro avançada e brilha em terrenos técnicos difíceis.', '', NULL, NULL, NULL),
+(1, 1, 1, 'Husqvarna', 'FE', '250', '0 ', 10250, 'Branco', '2021', 'A FE 250 é a menor capacidade de 4 tempos da linha de enduro, o que também significa que é a mais leve. Com uma série de recursos e tecnologias avançadas, esta máquina enduro avançada e brilha em terrenos técnicos difíceis.', '1616057377_fe250.png', NULL, '2021-03-18 08:49:38', NULL),
 (2, 1, 2, 'KTM', 'EXC', '300', '1350', 7100, 'Laranja', '2019', 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita.', '', NULL, NULL, NULL),
-(3, 2, 3, 'BMW', 'S', '1000', '17000', 15500, 'Brano', '2016', ' BMW S1000RR 2016  com os seguintes extras:\r\n-Ponteira Akrapovic HP titanium\r\n-Manetes bomba de travao Brembo Rcs19, embraiagem Brembo Rcs19\r\n-Proteção Radiador R&G e radiador de oleo R&G\r\n-Tampas de oleo Rizoma\r\n-Suporte de matricula Curto\r\n', '', NULL, NULL, NULL),
-(4, 3, 4, 'Honda', 'Hornet', '600', '28990', 6000, 'Preto', '2012', 'Honda CB600 F com cerca de 28990 km, praticamente nova', '', NULL, NULL, NULL),
+(3, 2, 3, 'BMW', 'S', '1000', '17000', 15500, 'Brano', '2016', ' BMW S1000RR 2016  com os seguintes extras:\r\n-Ponteira Akrapovic HP titanium\r\n-Manetes bomba de travao Brembo Rcs19, embraiagem Brembo Rcs19\r\n-Proteção Radiador R&G e radiador de oleo R&G\r\n-Tampas de oleo Rizoma\r\n-Suporte de matricula Curto\r\n', '1615569245_bmw fin.png', NULL, '2021-03-12 17:14:05', NULL),
+(4, 3, 4, 'Honda', 'Hornet', '600', '28990', 6000, 'Preto', '2012', 'Honda CB600 F com cerca de 28990 km, praticamente nova', '1615823942_hornet.webp', NULL, '2021-03-15 15:59:02', NULL),
 (6, 3, NULL, 'Yamaha', 'FZ', '800', '23500', 6000, 'Azul', '2010-06-16', 'Revisão feita. Pneus em muito bom estado. Frente tem pouco mais de 1000kms. Manetes curtas. Banco condutor em gel. Suporte telemóvel com ficha de carregamento. Ponteira réplica Akrapovic', '', '2021-02-26 16:27:24', '2021-02-26 16:27:24', NULL),
 (11, 2, NULL, 'Honda', 'Cbr', '1000', '11000', 7150, 'Tricolor', '2010-06-16', 'Mota muito nova de tudo com muito pouco uso com 11.000km toda de origem', '1614957380_cbr2.webp', '2021-03-05 15:16:20', '2021-03-05 15:16:20', NULL);
 
@@ -178,9 +178,8 @@ CREATE TABLE `publicidades` (
 --
 
 INSERT INTO `publicidades` (`id_publicidade`, `id_mota`, `designacao`, `fotografia`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita', NULL, NULL, NULL, NULL),
-(2, 4, 'Honda CB600 F  e cerca de 28990 km, praticamente nova', 'C:\\xampp\\tmp\\php2D30.tmp', '2021-03-01 17:32:59', '2021-03-01 17:32:59', NULL),
-(4, 7, 'a', '1614869280_ktm-removebg-preview.png', '2021-03-04 14:48:00', '2021-03-04 14:48:00', NULL);
+(1, 2, 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita', '1616169381_ktm-removebg-preview.png', NULL, '2021-03-19 15:56:21', NULL),
+(2, 4, 'Honda CB600 F  e cerca de 28990 km, praticamente nova', 'C:\\xampp\\tmp\\php2D30.tmp', '2021-03-01 17:32:59', '2021-03-01 17:32:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -317,13 +316,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de tabela `motas`
 --
 ALTER TABLE `motas`
-  MODIFY `id_mota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_mota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `publicidades`
 --
 ALTER TABLE `publicidades`
-  MODIFY `id_publicidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_publicidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `users`
