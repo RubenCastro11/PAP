@@ -65,7 +65,7 @@ class PublicidadeController extends Controller
 
             'id_mota'=>['required','numeric'],
             'designacao'=>['required','min:0'],
-            'fotografia'=>['required','image','max:2000'],
+            'fotografia'=>['nullable','image','max:2000'],
             ]);
             if($request->hasFile('fotografia')){
                 $nomeImagem=$request->file('fotografia')->getClientOriginalName();
@@ -87,5 +87,33 @@ class PublicidadeController extends Controller
             'publicidade'=>$publicidade
         ]);     
     }
+    public function delete(Request $request){
+        $idpublicidade=$request->id_publicidade;
+        $publicidade=Publicidade::where('id_publicidade',$idpublicidade)->first();
+        
+            if(is_null($publicidade)){
+                return redirect()->route('publicidades.index');
+            }
+            else
+            {
+                return view('Publicidade.delete',[
+                    'publicidade'=>$publicidade
+                ]);
+            }
+        }
+    
+    public function destroy(Request $request){
+        $idpublicidade=$request->id_publicidade;
+        $publicidade=Publicidade::where('id_publicidade',$idpublicidade)->first();
+        
+            if(is_null($publicidade)){
+                return redirect()->route('publicidades.index');
+            }
+            else
+            {
+                $publicidade->delete();
+                return redirect()->route('publicidades.index')->with('mensagem','Publicidade eliminada!');
+            }
+        }    
     }
  

@@ -68,7 +68,7 @@ public function update (Request $request){
             $idmota=$request->id_mota;
             $mota=Mota::where('id_mota',$idmota)->first();
            
-            $atualizarmota=$request->validate([
+            $atualizarMota=$request->validate([
             'id_estilo'=>['required','numeric'],
             'marca'=>['required','min:3','max:50'],
             'modelo'=>['required','min:1','max:50'],
@@ -80,7 +80,7 @@ public function update (Request $request){
             'cor'=>['required','min:3','max:10'],
             'data_fabrico'=>['required','date'],
             'observacoes'=>['nullable','min:3','max:255'],
-            'fotografia'=>['required','image','max:2000'],
+            'fotografia'=>['nullable','image','max:2000'],
             ]);
             
             if($request->hasFile('fotografia')){
@@ -94,17 +94,17 @@ public function update (Request $request){
         return redirect()->route('motas.show',[
             'id'=>$mota->id_mota
         ]);
-        }
+}
 
         public function edit(Request $request){
-        $idmota=$request->id_mota; 
-        $mota=Mota::where('id_mota',$idmota)->with('estilo')->first();
-        $estilos=Estilo::all();
-        return view('mota.edit',[
-            'mota'=>$mota,
-            'estilos'=>$estilos
-        ]);     
-    }
+            $idmota=$request->id_mota; 
+            $mota=Mota::where('id_mota',$idmota)->with('estilo')->first();
+            $estilos=Estilo::all();
+            return view('mota.edit',[
+                'mota'=>$mota,
+                'estilos'=>$estilos
+            ]);     
+        }
 
     public function delete(Request $request){
         $idmota=$request->id_mota;

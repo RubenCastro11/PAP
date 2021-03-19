@@ -55,7 +55,7 @@ Estilo:<select name="id_estilo">
     <br><br>
     @endif
     
-    Observações:<br> <textarea type="text" name="observacoes" value="{{$mota->observacoes}}"></textarea> <br><br>
+    Observações:<br> <textarea type="text" name="observacoes" >{{$mota->observacoes}}</textarea> <br><br>
    
       Fotografia: <input type="file" name="fotografia" value="{{$mota->fotografia}}"><br><br>
     @if ($errors->has('fotografia'))  
