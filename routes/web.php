@@ -29,6 +29,10 @@ Route::get('/estilo/{id_estilo}/edit','App\Http\Controllers\EstiloController@edi
 
 Route::patch('/estilo/{id_estilo}/','App\Http\Controllers\EstiloController@update')->name('estilos.update')->middleware('auth');
 
+Route::get('/estilo/{id_estilo}/delete','App\Http\Controllers\EstiloController@delete')->name('estilos.delete')->middleware('auth');
+
+Route::delete('/estilo/{id_estilo}','App\Http\Controllers\EstiloController@destroy') ->name('estilos.destroy')->middleware('auth'); 
+
 
 
 
@@ -85,6 +89,14 @@ Route::get('/marca/{id}/show','App\Http\Controllers\MarcaController@show')->name
 Route::get('/marca/create','App\Http\Controllers\MarcaController@create')->name('marcas.create')->middleware('auth');
 
 Route::post('/marca','App\Http\Controllers\MarcaController@store')->name('marcas.store')->middleware('auth');
+
+Route::get('/marca/{id_marca}/edit','App\Http\Controllers\MarcaController@edit')->name('marcas.edit')->middleware('auth');
+
+Route::patch('/marca/{id_marca}/','App\Http\Controllers\MarcaController@update')->name('marcas.update')->middleware('auth');
+
+Route::get('/marca/{id_marca}/delete','App\Http\Controllers\MarcaController@delete')->name('marcas.delete')->middleware('auth');
+
+Route::delete('/marca/{id_marca}','App\Http\Controllers\MarcaController@destroy') ->name('marcas.destroy')->middleware('auth');  
 
 
 Auth::routes();

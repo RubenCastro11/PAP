@@ -49,7 +49,7 @@ class MarcaController extends Controller
 }
 
 public function update (Request $request){
-            $idmarca=$request->id;
+            $idmarca=$request->id_marca;
             $marca=Marca::findOrFail($idmarca);
 
             $atualizarmarca=$request->validate([
@@ -65,10 +65,32 @@ public function update (Request $request){
                 $guardarImagem=$request->file('logotipo')->storeAs('imagens/marca',$nomeImagem);
                 $atualizarmarca['logotipo']=$nomeImagem;
             }
-            $marca->update($editMarca);
+            $marca->update($atualizarmarca);
         
         return redirect()->route('marcas.show',[
             'id'=>$marca->id_marca
         ]);
-        }
+     }
+    public function edit(Request $request){
+        $idmarca=$request->id_marca; 
+        $marca=Marca::where('id_marca',$idmarca)->first();
+        return view('marca.edit',[
+            'marca'=>$marca
+        ]);   
+      }
+    public function delete(Request $request){
+        $idmarca=$request->id_marca;
+        $marca=Marca::where('id_marca',$idmarca)->first();
+        return view('marca.delete',[
+            'marca'=>$marca
+        ]);
+    }
+    public function destroy(Request $request){
+        $idmarca=$request->id_marca;
+        $marca=Marca::findOrfail($idmarca);
+        $marca->delete();
+        return redirect()->route('marcas.index')->with('msg','Marca Eliminada!');
+       
+    }
+    
     }

@@ -52,8 +52,20 @@ class EstiloController extends Controller
         return redirect()->route('estilos.show',[
             'id_estilo'=>$estilo->id_estilo
         ]);
-     
-        
+   
     }
-    
+    public function delete(Request $request){
+        $idestilo=$request->id_estilo;
+        $estilo=Estilo::where('id_estilo',$idestilo)->first();
+        return view('estilo.delete',[
+            'estilo'=>$estilo
+        ]);
+    }
+    public function destroy(Request $request){
+        $idestilo=$request->id_estilo;
+        $estilo=Estilo::findOrfail($idestilo);
+        $estilo->delete();
+        return redirect()->route('estilos.index')->with('msg','Estilo Eliminada!');
+       
+    }
 }

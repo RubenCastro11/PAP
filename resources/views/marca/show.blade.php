@@ -12,3 +12,9 @@ Logótipo: {{$marca->logotipo}}<br>
 
 <br>
 <a href="{{route('marcas.index')}}">Voltar</a>
+
+<a href="{{route('marcas.edit', ['id_marca'=>$marca->id_marca])}}" class="btn btn-primary"> Editar 
+    
+<a href="{{route('marcas.delete', ['id_marca'=>$marca->id_marca])}}" class="btn btn-primary"> Eliminar     
+
+</a>
