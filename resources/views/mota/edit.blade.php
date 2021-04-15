@@ -12,11 +12,17 @@ Estilo:<select name="id_estilo">
     @endif
     <br><br>
 
-	Marca: <input type="text" name="marca" value="{{$mota->marca}}"><br><br>
-    @if ($errors->has('marca'))  
-    <b style="color:red"> Campo Obrigatório </b>
-    <br><br>
+ Marca:<select name="id_marca">
+    @foreach ($marcas as $marca)
+    <option value="{{$marca->id_marca}}">{{$marca->nome}}</option>
+    @endforeach
+    </select>
+    @if ($errors->has('id_marca'))
+    Selecione uma opção
     @endif
+    <br><br>
+
+    
     
     Modelo: <input type="text" name="modelo" value="{{$mota->modelo}}"><br><br>
     @if ($errors->has('modelo'))  

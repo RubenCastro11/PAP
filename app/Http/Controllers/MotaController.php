@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mota;
 use App\Models\Estilo;
+use App\Models\Marca;
+use App\Models\User;
+use App\Models\Publicidade;
 
 class MotaController extends Controller
 {
@@ -17,7 +20,7 @@ class MotaController extends Controller
     }
     public function show(Request $request){
     	$idmota=$request->id;
-    	$mota=Mota::where('id_mota',$idmota)->first();
+    	$mota=Mota::where('id_mota',$idmota)->with('estilo','marca','user','publicidade')->first();
     	return view('mota.show',[
     		'mota'=>$mota
     	]);
@@ -25,15 +28,23 @@ class MotaController extends Controller
 
     public function create(){
       $estilos=Estilo::all();
+      $marcas=Marca::all();
+      $users=User::all();
+      $publicidades=Publicidade::all();
          return view('mota.create',[
-          'estilos'=>$estilos
+          'estilos'=>$estilos,
+          'marcas'=>$marcas,
+          'user'=>$users,
+          'publicidade'=>$publicidades
          ]);
     }
     public function store(Request $request){
 
         $novoMota =$request->validate([
-            'id_estilo'=>['required','numeric'],
-            'marca'=>['required','min:3','max:50'],
+             'id_estilo'=>['required','numeric'],
+             'id_marca'=>['required','numeric'],
+             'id_user'=>['required','numeric'],
+             'id_publicidade'=>['required','numeric']
             'modelo'=>['required','min:1','max:50'],
 
             'cilindrada'=>['required','numeric','min:0'],
@@ -43,7 +54,7 @@ class MotaController extends Controller
             'cor'=>['required','min:3','max:10'],
             'data_fabrico'=>['required','date'],
             'observacoes'=>['nullable','min:3','max:255'],
-            'fotografia'=>['required','image','max:2000'],
+            'fotografia'=>['required','image','max:2000']
 
         ]);
 
@@ -70,7 +81,9 @@ public function update (Request $request){
            
             $atualizarMota=$request->validate([
             'id_estilo'=>['required','numeric'],
-            'marca'=>['required','min:3','max:50'],
+            'id_marca'=>['required','numeric'],
+            'id_user'=>['required','numeric'],
+            'id_publicidade'=>['required','numeric'],
             'modelo'=>['required','min:1','max:50'],
 
             'cilindrada'=>['required','numeric','min:0'],
@@ -98,11 +111,17 @@ public function update (Request $request){
 
         public function edit(Request $request){
             $idmota=$request->id_mota; 
-            $mota=Mota::where('id_mota',$idmota)->with('estilo')->first();
+            $mota=Mota::where('id_mota',$idmota)->with('estilo','marca','user','publicidade')->first();
             $estilos=Estilo::all();
+            $marcas=Marca::all();
+            $users=User::all();
+            $publicidades=Publicidade::all();
             return view('mota.edit',[
                 'mota'=>$mota,
-                'estilos'=>$estilos
+                'estilos'=>$estilos,
+                'marcas'=>$marcas,
+                'user'=>$users,
+                'publicidade'=>$publicidades
             ]);     
         }
 

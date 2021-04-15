@@ -16,6 +16,10 @@ class Publicidade extends Model
         'designacao',
         'fotografia'
     ];
+
+    public function mota(){
+    return $this->hasMany('App\Models\Mota','id_publicidade');
+}
 }
 
 ?>

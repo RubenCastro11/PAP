@@ -26,7 +26,7 @@ class MarcaController extends Controller
     }
     public function store(Request $request){
         $novoMarca =$request->validate([
-            'nome'=>['required','min:3','max:25'],
+            'nome'=>['required','min:1','max:25'],
             'origem_marca'=>['nullable','min:3','max:20'],
             'ano_criacao'=>['nullable','min:3','max:4'],
             'logotipo'=>['required','image','max:2000']     

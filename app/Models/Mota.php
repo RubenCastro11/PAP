@@ -13,9 +13,10 @@ class Mota extends Model
     
     protected $fillable=[
         'id_estilo',
+        'id_marca',
         'id_user',
+        'id_publicidade',
         'observacoes',
-        'marca',
         'modelo',
         'cilindrada',
         'quilometros',
@@ -29,7 +30,19 @@ class Mota extends Model
 public function estilo(){
     return $this->belongsTo('App\Models\Estilo','id_estilo');
 }
- 
+
+ public function marca(){
+    return $this->belongsTo('App\Models\Marca','id_marca');
+}
+
+public function publicidade(){
+    return $this->belongsTo('App\Models\Publicidade','id_publicidade');
+}
+
+public function user(){
+    return $this->belongsTo('App\Models\User','id_user');
+}
+
 }
 
 

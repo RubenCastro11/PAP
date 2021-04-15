@@ -1,8 +1,7 @@
 <h3> Motas </h3>
-Id Mota: {{$mota->id_mota}}<br>
-Id Estilo: {{$mota->id_estilo}}<br>
-Id User: {{$mota->id_user}}<br>
-Marca: {{$mota->marca}}<br>
+Estilo: {{$mota->estilo->nome}}<br>
+Utilizador: {{ $mota->user->name }}<br>
+Marca: {{$mota->marca->nome}}<br>
 Modelo: {{$mota->modelo}}<br>
 Cilindrada: {{$mota->cilindrada}}<br>
 Quilometros: {{$mota->quilometros}}<br>

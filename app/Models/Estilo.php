@@ -16,4 +16,8 @@ class Estilo extends Model
         
     ];
     
+    public function mota(){
+    return $this->hasMany('App\Models\Mota','id_estilo');
+}
+
 }

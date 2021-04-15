@@ -2,7 +2,7 @@
 @foreach($motas as $mota)
 <li>
  	<a href="{{route('motas.show',['id'=>$mota->id_mota])}}">
- 		{{$mota->marca}}
+ 		{{$mota->marca->nome}}
  		{{$mota->modelo}}
  		{{$mota->cilindrada}}
 

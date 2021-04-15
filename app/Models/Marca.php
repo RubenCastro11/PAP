@@ -17,4 +17,9 @@ class Marca extends Model
         'ano_criacao',
         'logotipo'
     ];
+
+    public function mota(){
+    return $this->hasMany('App\Models\Mota','id_marca');
+}
+
 }
