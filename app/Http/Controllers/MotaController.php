@@ -44,7 +44,7 @@ class MotaController extends Controller
              'id_estilo'=>['required','numeric'],
              'id_marca'=>['required','numeric'],
              'id_user'=>['required','numeric'],
-             'id_publicidade'=>['required','numeric']
+             'id_publicidade'=>['required','numeric'],
             'modelo'=>['required','min:1','max:50'],
 
             'cilindrada'=>['required','numeric','min:0'],

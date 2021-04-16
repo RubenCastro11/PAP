@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Mar-2021 às 18:29
+-- Tempo de geração: 15-Abr-2021 às 17:02
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.2
 
@@ -86,7 +86,8 @@ INSERT INTO `marcas` (`id_marca`, `nome`, `origem_marca`, `ano_criacao`, `logoti
 (2, 'KTM', 'Áustria', '1934', NULL, NULL, NULL, NULL),
 (3, 'BMW', 'Alemanha', '1916', NULL, NULL, NULL, NULL),
 (4, 'Honda', 'Japão', '1948', NULL, NULL, NULL, NULL),
-(10, 'Kawasaki', 'Japão', '1962', '1614961752_logo kawa.jpg', '2021-03-05 16:29:12', '2021-03-05 16:29:12', NULL);
+(10, 'Kawasaki', 'Japão', '1962', '1614961752_logo kawa.jpg', '2021-03-05 16:29:12', '2021-03-05 16:29:12', NULL),
+(11, 'Yamaha', 'Japão', '1887', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -119,7 +120,7 @@ CREATE TABLE `motas` (
   `id_mota` int(11) NOT NULL,
   `id_estilo` int(11) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
-  `marca` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_marca` int(11) NOT NULL,
   `modelo` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cilindrada` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL,
   `quilometros` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -137,13 +138,13 @@ CREATE TABLE `motas` (
 -- Extraindo dados da tabela `motas`
 --
 
-INSERT INTO `motas` (`id_mota`, `id_estilo`, `id_user`, `marca`, `modelo`, `cilindrada`, `quilometros`, `preco`, `cor`, `data_fabrico`, `observacoes`, `fotografia`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 'Husqvarna', 'FE', '250', '0 ', 10250, 'Branco', '2021', 'A FE 250 é a menor capacidade de 4 tempos da linha de enduro, o que também significa que é a mais leve. Com uma série de recursos e tecnologias avançadas, esta máquina enduro avançada e brilha em terrenos técnicos difíceis.', '1616057377_fe250.png', NULL, '2021-03-18 08:49:38', NULL),
-(2, 1, 2, 'KTM', 'EXC', '300', '1350', 7100, 'Laranja', '2019', 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita.', '', NULL, NULL, NULL),
-(3, 2, 3, 'BMW', 'S', '1000', '17000', 15500, 'Brano', '2016', ' BMW S1000RR 2016  com os seguintes extras:\r\n-Ponteira Akrapovic HP titanium\r\n-Manetes bomba de travao Brembo Rcs19, embraiagem Brembo Rcs19\r\n-Proteção Radiador R&G e radiador de oleo R&G\r\n-Tampas de oleo Rizoma\r\n-Suporte de matricula Curto\r\n', '1615569245_bmw fin.png', NULL, '2021-03-12 17:14:05', NULL),
-(4, 3, 4, 'Honda', 'Hornet', '600', '28990', 6000, 'Preto', '2012', 'Honda CB600 F com cerca de 28990 km, praticamente nova', '1615823942_hornet.webp', NULL, '2021-03-15 15:59:02', NULL),
-(6, 3, NULL, 'Yamaha', 'FZ', '800', '23500', 6000, 'Azul', '2010-06-16', 'Revisão feita. Pneus em muito bom estado. Frente tem pouco mais de 1000kms. Manetes curtas. Banco condutor em gel. Suporte telemóvel com ficha de carregamento. Ponteira réplica Akrapovic', '', '2021-02-26 16:27:24', '2021-02-26 16:27:24', NULL),
-(11, 2, NULL, 'Honda', 'Cbr', '1000', '11000', 7150, 'Tricolor', '2010-06-16', 'Mota muito nova de tudo com muito pouco uso com 11.000km toda de origem', '1614957380_cbr2.webp', '2021-03-05 15:16:20', '2021-03-05 15:16:20', NULL);
+INSERT INTO `motas` (`id_mota`, `id_estilo`, `id_user`, `id_marca`, `modelo`, `cilindrada`, `quilometros`, `preco`, `cor`, `data_fabrico`, `observacoes`, `fotografia`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, 1, 'FE', '250', '0 ', 10250, 'Branco', '2021', 'A FE 250 é a menor capacidade de 4 tempos da linha de enduro, o que também significa que é a mais leve. Com uma série de recursos e tecnologias avançadas, esta máquina enduro avançada e brilha em terrenos técnicos difíceis.', '1616057377_fe250.png', NULL, '2021-03-18 08:49:38', NULL),
+(2, 1, 2, 2, 'EXC', '300', '1350', 7100, 'Laranja', '2019', 'Mota com 300 de cilindrada a 2 tempos do ano de 2019 com poucos quilometros. Mota impecavel para enduro e para motocross sem problemas e com a revisao feita.', '', NULL, NULL, NULL),
+(3, 2, 6, 3, 'S', '1000', '17000', 15500, 'Branco', '2016', ' BMW S1000RR 2016  com os seguintes extras:\r\n-Ponteira Akrapovic HP titanium\r\n-Manetes bomba de travao Brembo Rcs19, embraiagem Brembo Rcs19\r\n-Proteção Radiador R&G e radiador de oleo R&G\r\n-Tampas de oleo Rizoma\r\n-Suporte de matricula Curto\r\n', '1615569245_bmw fin.png', NULL, '2021-03-12 17:14:05', NULL),
+(4, 3, 5, 4, 'Hornet', '600', '28990', 6000, 'Preto', '2012', 'Honda CB600 F com cerca de 28990 km, praticamente nova', '1615823942_hornet.webp', NULL, '2021-03-15 15:59:02', NULL),
+(6, 3, 7, 11, 'FZ', '800', '23500', 6000, 'Azul', '2010-06-16', 'Revisão feita. Pneus em muito bom estado. Frente tem pouco mais de 1000kms. Manetes curtas. Banco condutor em gel. Suporte telemóvel com ficha de carregamento. Ponteira réplica Akrapovic', '', '2021-02-26 16:27:24', '2021-02-26 16:27:24', NULL),
+(11, 2, 5, 4, 'Cbr', '1000', '11000', 7150, 'Tricolor', '2010-06-16', 'Mota muito nova de tudo com muito pouco uso com 11.000km toda de origem', '1616777026_cbr2.webp', '2021-03-05 15:16:20', '2021-03-26 16:43:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -203,7 +204,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Noel', 'noel@gmail.com', NULL, '$2y$10$QRY/udsguHa9bJf8vi7uKuq.jyOTMbSzBtHBc31t7epWieYNKcmj.', NULL, '2021-02-25 14:51:17', '2021-02-25 14:51:17');
+(1, 'Noel', 'noel@gmail.com', NULL, '$2y$10$QRY/udsguHa9bJf8vi7uKuq.jyOTMbSzBtHBc31t7epWieYNKcmj.', NULL, '2021-02-25 14:51:17', '2021-02-25 14:51:17'),
+(2, 'Noel', 'noel@ugmail.com', NULL, '$2y$10$QRY/udsguHa9bJf8vi7uKuq.jyOTMbSzBtHBc31t7epWieYNKcmj.', NULL, '2021-02-25 14:51:17', '2021-02-25 14:51:17'),
+(5, 'Moto Veiga', 'motoveigabraga@gmail.com', NULL, '$2y$10$/UoEt3VamxHJZNqKleKeFOJmdiHNGzhIcJDzGRooCyd2Nj7Oq3jju', NULL, '2021-04-14 07:49:00', '2021-04-14 07:49:00'),
+(6, 'Bmw Motorrad', 'bmwmotorrad@gmail.com', NULL, '$2y$10$t5P5RGK3fICU6MfxwQaJ/Oc7HuxfMXfklyemH1hWYX2d.uFoQz0L.', NULL, '2021-04-14 07:53:48', '2021-04-14 07:53:48'),
+(7, 'Moto Fundador', 'motofundador@gmail.com', NULL, '$2y$10$7fkWCRhTl.WGUv2jHaqike1Sg2XDulR09MBzFvuEMdTGAavFDb7NS', NULL, '2021-04-14 07:58:40', '2021-04-14 07:58:40');
 
 -- --------------------------------------------------------
 
@@ -256,7 +261,8 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `motas`
   ADD PRIMARY KEY (`id_mota`),
-  ADD KEY `id_estilo` (`id_estilo`,`id_user`);
+  ADD KEY `id_estilo` (`id_estilo`,`id_user`),
+  ADD KEY `id_marca` (`id_marca`);
 
 --
 -- Índices para tabela `password_resets`
@@ -304,7 +310,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `migrations`
@@ -316,7 +322,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de tabela `motas`
 --
 ALTER TABLE `motas`
-  MODIFY `id_mota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_mota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `publicidades`
@@ -328,7 +334,7 @@ ALTER TABLE `publicidades`
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `utilizadores`
