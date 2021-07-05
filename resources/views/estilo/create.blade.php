@@ -1,3 +1,6 @@
+@extends ('layout')
+@extends ('layout2')
+@section ('conteudo')
 <form action="{{route('estilos.store')}}"  method="post">
 @csrf
     
@@ -8,4 +11,4 @@ Nome: <input type="text" name="nome" value="{{old('nome')}}"><br><br>
     
 <input type="submit" value="enviar">
 </form>
-      
+  @endsection

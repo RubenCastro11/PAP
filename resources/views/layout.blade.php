@@ -46,11 +46,11 @@
     @endif
     <nav class="navbar navbar-expand-lg navbar bg-dark">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href=""><i class="fas fa-home"></i></a> 
-      <a class="nav-item nav-link" href="">Motas</a>
-      <a class="nav-item nav-link" href="">Estilos</a>
-      <a class="nav-item nav-link" href="">Marca</a>
-      <a class="nav-item nav-link" href="">Publicidades</a>
+      <a class="nav-item nav-link" href="home"><i class="fas fa-home"></i></a> 
+      <a class="nav-item nav-link" href="{{route('motas.index')}}">Motas</a>
+      <a class="nav-item nav-link" href="estilo">Estilos</a>
+      <a class="nav-item nav-link" href="marca">Marca</a>
+      <a class="nav-item nav-link" href="publicidade">Publicidades</a>
 
 
       @if(Gate::allows('admin'))

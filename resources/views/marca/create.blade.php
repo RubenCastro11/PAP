@@ -1,3 +1,6 @@
+@extends ('layout')
+@extends ('layout2')
+@section ('conteudo')
 <form action="{{route('marcas.store')}}" enctype="multipart/form-data" method="post">
 @csrf
     
@@ -23,9 +26,7 @@ Logotipo: <input type="file" name="logotipo" value="{{old('logotipo')}}"><br><br
     
 <input type="submit" value="enviar">
 </form>
-
-    
-
+@endsection
     
 
     
