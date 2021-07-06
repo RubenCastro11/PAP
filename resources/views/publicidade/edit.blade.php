@@ -1,7 +1,10 @@
+@extends ('layout')
+@extends ('layout2')
+@section ('conteudo')
 <form action="{{route('publicidades.update',['id_publicidade'=>$publicidade->id_publicidade])}}" enctype="multipart/form-data" method="post">
 @csrf
     @method('patch')
-	
+	<br>
 	ID da Publicidade: <input type="text" name="id_publicidade" value="{{$publicidade->id_publicidade}}"><br><br>
     @if ($errors->has('id_publicidade'))  
     <b style="color:red"> Digite um número </b>
@@ -31,7 +34,7 @@
     
     
     
-    <input type="submit" name="enviar">
+    <input type="submit" name="Enviar"class="btn btn-primary" >
     
     
     
@@ -39,3 +42,4 @@
     
     
 </form>
+@endsection

@@ -48,9 +48,9 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="home"><i class="fas fa-home"></i></a> 
       <a class="nav-item nav-link" href="{{route('motas.index')}}">Motas</a>
-      <a class="nav-item nav-link" href="estilo">Estilos</a>
-      <a class="nav-item nav-link" href="marca">Marca</a>
-      <a class="nav-item nav-link" href="publicidade">Publicidades</a>
+      <a class="nav-item nav-link" href="{{route('estilos.index')}}">Estilos</a>
+      <a class="nav-item nav-link" href="{{route('marcas.index')}}">Marca</a>
+      <a class="nav-item nav-link" href="{{route('publicidades.index')}}">Publicidades</a>
 
 
       @if(Gate::allows('admin'))

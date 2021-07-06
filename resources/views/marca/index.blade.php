@@ -5,6 +5,7 @@
       <div class="container-fluid">
 
         <div class="row">
+          <h1>Marcas</h1>
 
           @foreach($marcas as $marca)
 
@@ -34,5 +35,5 @@
 
 
 <br>
-<a href="{{route('marcas.create')}}">Adicionar Marca</a>
+<a href="{{route('marcas.create')}}"class="btn btn-primary">Adicionar Marca</a>
 @endsection

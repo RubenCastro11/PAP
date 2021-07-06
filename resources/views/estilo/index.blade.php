@@ -5,13 +5,12 @@
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-            <h3>Estilos</h3>
-          </div>
+          <h1>Estilos</h1>
+          
           @foreach($estilos as $estilo)
 
           <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <div class="icon"><i class="fas fa-motorcycle"></i></div>
               <h4 class="title"><a href="{{route('estilos.show',['id_estilo'=>$estilo->id_estilo])}}">{{$estilo->nome}}</a></h4>
             </div>
 
@@ -22,7 +21,7 @@
 
          
         </div>
-
+      </div>
       </div>
     </section><!-- End About Section -->
 
@@ -30,7 +29,7 @@
 
 
 <br>
-<a href="{{route('estilos.create')}}">Adicionar Estilo</a>
+<a href="{{route('estilos.create')}}"class="btn btn-primary">Adicionar Estilo</a>
 @endsection
 
 

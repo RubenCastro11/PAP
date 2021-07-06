@@ -1,6 +1,7 @@
 @extends ('layout')
 @extends ('layout2')
 @section('conteudo')
+<div class="col-md-12">
 <h3> Motas </h3>
 <br>
 <br>
@@ -11,8 +12,8 @@
 			<td>{{$mota->estilo->nome}}</td>
 		</tr>
 		<tr>
-			<td>Utilizador: {{ $mota->user->name }}</td>
-			<td></td>
+			<td>Utilizador:</td>
+			<td>{{ $mota->user->name }}</td>
 		</tr>
 		<tr>
 			<td>Marca:</td>
@@ -22,20 +23,35 @@
 			<td>Modelo:</td>
 			<td>{{$mota->modelo}}</td>
 		</tr>
+		<tr>
+			<td>Cilindrada:</td>
+			<td>{{$mota->cilindrada}}</td>
+		</tr>
+		<tr>
+			<td>Quilometros:</td>
+			<td>{{$mota->quilometros}}</td>
+		</tr>
+		<tr>
+			<td>Preço:</td>
+			<td>{{$mota->preco}}</td>
+		</tr>
+		<tr>
+			<td>Cor:</td>
+			<td>{{$mota->cor}}</td>
+		</tr>
+		<tr>
+			<td>Data de Fabrico:</td>
+			<td>{{$mota->data_fabrico}}</td>
+		</tr>
+		<tr>
+			<td>Observações:</td>
+			<td>{{$mota->observacoes}}</td>
+		</tr>
+
 		</tr>
 	</tbody>
 </table>
 
-Estilo: {{$mota->estilo->nome}}<br>
-Utilizador: {{ $mota->user->name }}<br>
-Marca: {{$mota->marca->nome}}<br>
-Modelo: {{$mota->modelo}}<br>
-Cilindrada: {{$mota->cilindrada}}<br>
-Quilometros: {{$mota->quilometros}}<br>
-Preço: {{$mota->preco}}<br>
-Cor: {{$mota->cor}}<br>
-Data de Fabrico: {{$mota->data_fabrico}}<br>
-Observações: {{$mota->observacoes}}<br>
 
 
 @if(isset($mota->fotografia))
@@ -43,11 +59,25 @@ Observações: {{$mota->observacoes}}<br>
 <img src="{{asset('imagens/mota/'.$mota->fotografia)}}" style="width: 20%; text-align:center"/>
 </div>
 @endif
+
 <br>
 <br>
-<a href="{{route('motas.index')}}" class="btn btn-primary">Voltar</a>
+ <div class="row">
+<div class="col-md-4">
+<a href="{{route('motas.index')}}" class="btn btn-primary"class="btn btn-primary">Voltar</a>
+</div>
 
-<a href="{{route('motas.edit', ['id_mota'=>$mota->id_mota])}}" class="btn btn-primary"> Editar </a>
+<div class="col-md-6">
+</div>
 
-<a href="{{route('motas.delete', ['id_mota'=>$mota->id_mota])}}" class="btn btn-primary"> Eliminar </a>
+<div class="col-md-1">
+<a href="{{route('motas.edit', ['id_mota'=>$mota->id_mota])}}" class="btn btn-primary"class="btn btn-primary"> Editar </a>
+</div>
+
+<div class="text-right col-md-1">
+<a href="{{route('motas.delete', ['id_mota'=>$mota->id_mota])}}" class="btn btn-primary"class="btn btn-primary" > Eliminar </a>
+</div>
+
+</div>
+</div>
 @endsection

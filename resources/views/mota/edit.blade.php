@@ -1,7 +1,10 @@
+@extends ('layout')
+@extends ('layout2')
+@section ('conteudo')
 <form action="{{route('motas.update',['id_mota'=>$mota->id_mota])}}" enctype="multipart/form-data" method="post">
 @csrf
 @method('patch')
-    
+    <br>
 Estilo:<select name="id_estilo">
     @foreach ($estilos as $estilo)
     <option value="{{$estilo->id_estilo}}">{{$estilo->nome}}</option>
@@ -69,5 +72,6 @@ Estilo:<select name="id_estilo">
     <br><br>
     @endif
 
-<input type="submit" value="enviar">
+<input type="submit" value="Enviar" class="btn btn-primary">
 </form>
+@endsection

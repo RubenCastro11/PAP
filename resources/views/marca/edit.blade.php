@@ -1,6 +1,11 @@
+@extends ('layout')
+@extends ('layout2')
+@section ('conteudo')
+<br>
 <form action="{{route('marcas.update',['id_marca'=>$marca->id_marca])}}" enctype="multipart/form-data" method="post">
 @csrf
 @method('patch')
+<br>
     
 Nome: <input type="text" name="nome" value="{{$marca->nome}}"><br><br>
 @if ($errors->has('nome'))
@@ -22,5 +27,6 @@ Logotipo: <input type="file" name="logotipo" value="{{$marca->logotipo}}"><br><b
 <b style="color:red">Logótipo Obrigatório</b><br>
 @endif
     
-<input type="submit" value="enviar">
+<input type="submit" value="Enviar" class="btn btn-primary">
 </form>
+@endsection
