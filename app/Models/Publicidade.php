@@ -18,7 +18,7 @@ class Publicidade extends Model
     ];
 
     public function mota(){
-    return $this->hasMany('App\Models\Mota','id_publicidade');
+    return $this->belongsTo('App\Models\Mota','id_mota');
 }
 }
 

@@ -26,6 +26,17 @@
       table,tr,td,th{
         color:#ffffff;
       }
+
+      .card {
+
+        background-color: #343a40;
+ 
+    }
+
+    .margem-top {
+      margin-top:50px;
+    }
+
     </style>
 </head>
 <body>
@@ -46,8 +57,8 @@
     @endif
     <nav class="navbar navbar-expand-lg navbar bg-dark">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="home"><i class="fas fa-home"></i></a> 
-      <a class="nav-item nav-link" href="{{route('motas.index')}}">Motas</a>
+      <a class="nav-item nav-link" href="{{route('motas.index')}}"><i class="fas fa-home"></i></a> 
+     <!--  <a class="nav-item nav-link" href="{{route('motas.index')}}">Motas</a> -->
       <a class="nav-item nav-link" href="{{route('estilos.index')}}">Estilos</a>
       <a class="nav-item nav-link" href="{{route('marcas.index')}}">Marca</a>
       <a class="nav-item nav-link" href="{{route('publicidades.index')}}">Publicidades</a>
@@ -57,7 +68,7 @@
         <a class="nav-item nav-link" href="{{route('users.index')}}">Users</a>
       @endif
 
-      <a class="nav-item nav-link" href="{{route('home')}}">Home</a>
+     <!--  <a class="nav-item nav-link" href="{{route('home')}}">Home</a> -->
       @guest
       @if (Route::has('login'))
         <li class="nav-item">
@@ -70,7 +81,7 @@
         </li>
       @endif
       @else
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }}
             </a>
@@ -84,7 +95,8 @@
               @csrf
             </form>
             </div>
-          </li>
+          </li> -->
+          <a class="nav-item nav-link" href="{{route('logout')}}">Logout</a>
       @endguest
     </div>
 </nav>

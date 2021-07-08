@@ -13,7 +13,7 @@
 		</tr>
 		<tr>
 			<td>Utilizador:</td>
-			<td>{{ $mota->user->name }}</td>
+			<td>@if ($mota->user){{ $mota->user->name }}@endif</td>
 		</tr>
 		<tr>
 			<td>Marca:</td>
@@ -56,7 +56,7 @@
 
 @if(isset($mota->fotografia))
 <div class='container'>
-<img src="{{asset('imagens/mota/'.$mota->fotografia)}}" style="width: 20%; text-align:center"/>
+<img src="{{asset('imagens/mota/'.$mota->fotografia)}}" style="width: 50%; text-align:center"/>
 </div>
 @endif
 

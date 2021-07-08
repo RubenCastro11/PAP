@@ -8,7 +8,8 @@ use App\Models\Publicidade;
 class PublicidadeController extends Controller
 {
     public function index(){
-    	$publicidade=Publicidade::all();
+    	$publicidade=Publicidade::with('mota')->get();
+       // dd($publicidade);
     	return view('publicidade.index',[
     		'publicidade'=>$publicidade
     	]);

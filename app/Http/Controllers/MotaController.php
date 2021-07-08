@@ -8,6 +8,7 @@ use App\Models\Estilo;
 use App\Models\Marca;
 use App\Models\User;
 use App\Models\Publicidade;
+use Auth;
 
 class MotaController extends Controller
 {
@@ -43,8 +44,7 @@ class MotaController extends Controller
         $novoMota =$request->validate([
              'id_estilo'=>['required','numeric'],
              'id_marca'=>['required','numeric'],
-             'id_user'=>['required','numeric'],
-             'id_publicidade'=>['required','numeric'],
+                    
             'modelo'=>['required','min:1','max:50'],
 
             'cilindrada'=>['required','numeric','min:0'],
@@ -54,9 +54,19 @@ class MotaController extends Controller
             'cor'=>['required','min:3','max:10'],
             'data_fabrico'=>['required','date'],
             'observacoes'=>['nullable','min:3','max:255'],
-            'fotografia'=>['required','image','max:2000']
+            'fotografia'=>['nullable','image','max:2000']
 
         ]);
+
+        if (Auth::check()) {
+              $novoMota['id_user'] = Auth::user()->id;
+          } 
+          else {
+            $novoMota['id_user']=-1;
+          }
+      
+
+
 
         if ($request->hasFile('fotografia')){
             $nomeimagem = $request->file('fotografia')->getClientOriginalName();
@@ -82,8 +92,7 @@ public function update (Request $request){
             $atualizarMota=$request->validate([
             'id_estilo'=>['required','numeric'],
             'id_marca'=>['required','numeric'],
-            'id_user'=>['required','numeric'],
-            'id_publicidade'=>['required','numeric'],
+
             'modelo'=>['required','min:1','max:50'],
 
             'cilindrada'=>['required','numeric','min:0'],

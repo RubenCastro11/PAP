@@ -34,7 +34,7 @@
     
     
     
-    <input type="submit" name="enviar">
+    <input type="submit" name="Enviar" class="btn btn-primary">
     
     
     

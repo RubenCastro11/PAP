@@ -73,7 +73,7 @@
     @endif
     
     
-    <input type="submit" name="enviar"class="btn btn-primary">
+    <input type="submit" name="Enviar"class="btn btn-primary">
     
     
     
